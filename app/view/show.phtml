@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://localhost/MoviesTask/movie/form">Add movie</a>
+    <a href="http://localhost/MoviesTask/search/form">Search</a>
+    <a href="http://localhost/MoviesTask/front/upload">Upload</a>
+    <?php foreach ($data as $movie): ?>
+    <form action="http://localhost/MoviesTask/movie/deleteMovie" method="post">
+       <?php echo 'Title: '.$movie['title'];
+        echo "<br />";
+        echo 'Year: '.$movie['year'];
+        echo "<br />";
+        echo 'Actors: '.$movie['actors'];
+        echo "<br />";
+        echo 'Format: '.$movie['format'];
+        echo "<br />"; ?>
+        <input type="hidden" name="id" value="<?php echo $movie['id']; ?>">
+        <input type="submit" value="Delete Movie">    
+    </form>
+    
+    <?php endforeach; ?>
+</body>
+</html>

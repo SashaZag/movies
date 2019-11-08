@@ -1,0 +1,27 @@
+127.0.0.1		marketplace.sss
+127.0.0.1		www.marketplace.sss
+
+apache
+
+<VirtualHost *:80>
+
+    DocumentRoot "C:/xampp/htdocs/marketplace-cms/code"
+    ServerName locahost
+    ServerAlias locahost
+
+    <Directory />
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+    
+</VirtualHost>
+
+<VirtualHost *:80>
+
+    ServerAdmin webmaster@marketplace.sss
+    DocumentRoot "C:/xampp/htdocs/marketplace-cms/code/"
+    ServerName marketplace.sss
+    ServerAlias marketplace.sss
+   
+</VirtualHost>
