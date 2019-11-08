@@ -14,7 +14,7 @@ class Router {
             require_once($controllerFile);
 
         } else {
-            die("page not found");
+            header('Location: http://localhost/MoviesTask/front/all');
         }
 
         $controller = new $controllerName;
