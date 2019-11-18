@@ -4,20 +4,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>    
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script type="text/javascript">
-<!--
-function confirmation(){
-var answer = confirm('Are you sure you want to delete?');
-if(answer){
-return confirm.submit();
-}
-else{
-alert("Cancelled the delete!")
-}
-}
-//-->
 
-</script>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -37,8 +24,6 @@ alert("Cancelled the delete!")
 </head>
 <body>
 
-    <?php //var_dump($data); ?>
-    <?php echo $num; ?>
     <a class="navbar-brand" href="http://localhost/MoviesTask/movie/form">Add movie</a>
     <a class="navbar-brand" href="http://localhost/MoviesTask/search/form">Search</a>
     <a class="navbar-brand" href="http://localhost/MoviesTask/front/upload">Upload</a>
@@ -52,7 +37,7 @@ alert("Cancelled the delete!")
         <?php echo 'Format: '.$movie['format']; ?></div>
         <input type="hidden" name="id"  value="<?php echo $movie['id']; ?>">
         
-        <div class="col-sm-4"><input type="submit" onclick="confirmation();" value="Delete Movie"></div>
+        <div class="col-sm-4"><input type="submit"  value="Delete Movie"></div>
         <hr class="width: 100%; color: black; height: 1px; background-color:black;">
         <hr class="col-xs-12">
         </div>
