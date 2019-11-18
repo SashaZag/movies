@@ -14,12 +14,11 @@ class frontController extends coreController {
         $this->model = new showModel;
 
         $params = $this->paginate();
-        // var_dump($params);
         $data = $this->model->showByAlphabet($params['offset'], $params['itemsOnPage']);
         $num = $this->model->allRecords();
-        // var_dump($num);
-        // extract($num);
-        // echo $num;
+        usort($data, function($a, $b) {
+            return $a['title'] <=> $b['title'];
+        });
         $this->render('show', $data, $num);
     }
 

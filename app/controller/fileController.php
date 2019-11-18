@@ -34,9 +34,7 @@ class fileController extends coreController {
 
                 $new = trim($new);
                 var_dump($new);
-                // break;
                 if(empty($new)) {
-                    echo "breaks";
                     break;
                 }
                 var_dump($new);
@@ -51,6 +49,7 @@ class fileController extends coreController {
             if(!empty($movie)) $this->model->insertFromFile($movie);
            
         }
+        return $this->render('infoPage', array('mess' => 'File loaded successfuly'));
     }
 
 }
