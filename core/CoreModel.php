@@ -7,7 +7,7 @@ class coreModel {
     public function __construct() { 
 
         $this->pdo = new PDO ('mysql:host=localhost;dbname=moviestask', 'root', '');
-
+        // var_dump($this->pdo);
     }
 
 }

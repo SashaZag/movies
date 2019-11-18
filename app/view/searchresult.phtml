@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>    
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    
 </head>
 <body>
-    <?php var_dump($data); ?>
+    <?php foreach($data as $movie): ?>
+        <div class="container">
+        <div class="row">
+        <div class="col-sm-4 nopadding">
+            <?php echo 'Title: '.$movie['title']; ?> <br />
+            <?php echo 'Year: '.$movie['year']; ?> <br />
+            <?php echo 'Actors: '.$movie['actors']; ?> <br />
+            <?php echo 'Format: '.$movie['format']; ?>
+            <hr>
+        </div>
+        </div>
+        </div>
+    <?php endforeach; ?>
+    <a href="http://localhost/MoviesTask/front/all">Back to main</a> 
+
 </body>
 </html>

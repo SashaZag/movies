@@ -5,7 +5,9 @@ class movieModel extends coreModel {
     public function deleteMovie($id) {
         $stmt = $this->pdo->prepare("DELETE FROM movies WHERE `id` = :id");
         $stmt->bindParam(':id', $id);
-        $stmt->execute();
+        $result = $stmt->execute();
+
+        return $result;
 
     }
 
@@ -18,7 +20,9 @@ class movieModel extends coreModel {
         $stmt->bindParam(':format', $format);
         $stmt->bindParam(':actors', $actors);
 
-        $stmt->execute();
+        $result = $stmt->execute();
+
+        return $result;
 
 
     }

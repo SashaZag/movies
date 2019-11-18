@@ -23,8 +23,10 @@ class Router {
         if(file_exists($modelFile)) {
             require_once($modelFile);
         }
-
-        $actionName = $path[3].'Action';
+        // strtok($path[3], "?");
+        $actionName = strtok($path[3], "?").'Action';
+        // trim($actionName, "?");
+        // var_dump($actionName);
         $controller->$actionName();
         // $controller->$path[2].'Action';
 

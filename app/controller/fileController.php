@@ -20,6 +20,12 @@ class fileController extends coreController {
         $this->model = new fileModel;
         $file = fopen($this->path, 'r');
         $this->model = new fileModel;
+        $fileName = $_FILES['image']['name'];
+        $fileSize = $_FILES['image']['size'];
+        if (!preg_match("/^.*\.txt$/", $fileName) || $fileSize == 0) {
+            return $this->render('infoPage', array('mess' => 'Incorrect format or file is empty'));
+        }
+
         while(!feof($file)) {
             $movie = array();
             for ($i = 0; $i <= 3; $i++){

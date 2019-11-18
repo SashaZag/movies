@@ -1,29 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>    
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+<!--
+function confirmation(){
+var answer = confirm('Are you sure you want to delete?');
+if(answer){
+return confirm.submit();
+}
+else{
+alert("Cancelled the delete!")
+}
+}
+//-->
+
+</script>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .nopadding {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .pagination {
+            margin-left: 70px !important;
+        }
+        hr.style1{
+	        border-top: 1px solid #8c8b8b;
+        }
+    </style>
 </head>
 <body>
-    <a href="http://localhost/MoviesTask/movie/form">Add movie</a>
-    <a href="http://localhost/MoviesTask/search/form">Search</a>
-    <a href="http://localhost/MoviesTask/front/upload">Upload</a>
+
+    <?php //var_dump($data); ?>
+    <?php echo $num; ?>
+    <a class="navbar-brand" href="http://localhost/MoviesTask/movie/form">Add movie</a>
+    <a class="navbar-brand" href="http://localhost/MoviesTask/search/form">Search</a>
+    <a class="navbar-brand" href="http://localhost/MoviesTask/front/upload">Upload</a>
     <?php foreach ($data as $movie): ?>
-    <form action="http://localhost/MoviesTask/movie/deleteMovie" method="post">
-       <?php echo 'Title: '.$movie['title'];
-        echo "<br />";
-        echo 'Year: '.$movie['year'];
-        echo "<br />";
-        echo 'Actors: '.$movie['actors'];
-        echo "<br />";
-        echo 'Format: '.$movie['format'];
-        echo "<br />"; ?>
-        <input type="hidden" name="id" value="<?php echo $movie['id']; ?>">
-        <input type="submit" value="Delete Movie">    
+    <form name="confirm" action="http://localhost/MoviesTask/movie/deleteMovie" method="post">
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-4 nopadding"><?php echo 'Title: '.$movie['title']; ?>
+        <?php echo 'Year: '.$movie['year']; ?>
+        <?php echo 'Actors: '.$movie['actors']; ?>
+        <?php echo 'Format: '.$movie['format']; ?></div>
+        <input type="hidden" name="id"  value="<?php echo $movie['id']; ?>">
+        
+        <div class="col-sm-4"><input type="submit" onclick="confirmation();" value="Delete Movie"></div>
+        <hr class="width: 100%; color: black; height: 1px; background-color:black;">
+        <hr class="col-xs-12">
+        </div>
+    </div>    
     </form>
-    
+    <hr class="style1">
     <?php endforeach; ?>
+    <ul class="pagination pullrigh">
+    <?php for($i = 1; $i < ceil($num/5); $i++): ?>
+        <li class="page-item"><a class="page-link" href="http://localhost/MoviesTask/front/all?page=<?php echo $i; ?>"><?php echo $i ?></a></li>
+    <?php endfor; ?>
+    </ul>
 </body>
 </html>

@@ -18,7 +18,7 @@ class searchModel extends coreModel {
         $stmt = $this->pdo->prepare("SELECT * FROM movies WHERE `title` like :title");
 
         $stmt->bindParam(':title', $movieName);
-        // var_dump($stmt->execute());
+        $stmt->execute();
 
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
