@@ -35,7 +35,16 @@ class movieController extends coreController {
         $array = explode(", ", $_POST['actors']);
         $uniq = array_unique($array);
         $names = implode(", ", $uniq);
+
+        $check = $this->model->checkIfExists($_POST['title'], $_POST['year'], $_POST['format'], $names);
+        
+        if($check['cnt'] > 0) {
+            var_dump($check);
+            return $this->render('infoPage', array('mess' => 'Record already exists'));
+        }
+
         $result = $this->model->addMovie($_POST['title'], $_POST['year'], $_POST['format'], $names);
+
 
         if($result) {
             return $this->render('infoPage', array('mess' => 'Movie added successfuly'));

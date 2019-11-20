@@ -17,8 +17,12 @@ class frontController extends coreController {
         $data = $this->model->showByAlphabet($params['offset'], $params['itemsOnPage']);
         $num = $this->model->allRecords();
         usort($data, function($a, $b) {
-            return $a['title'] <=> $b['title'];
+            if(mb_detect_encoding($a['title']) == 'ASCII') {
+                return $a['title'] <=> $b['title'];
+            }
+            return $b['title'] <=> $a['title'];
         });
+
         $this->render('show', $data, $num);
     }
 

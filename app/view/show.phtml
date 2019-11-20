@@ -46,7 +46,7 @@
     <hr class="style1">
     <?php endforeach; ?>
     <ul class="pagination pullrigh">
-    <?php for($i = 1; $i < ceil($num/5); $i++): ?>
+    <?php for($i = 1; $i <= ceil($num/5); $i++): ?>
         <li class="page-item"><a class="page-link" href="http://localhost/MoviesTask/front/all?page=<?php echo $i; ?>"><?php echo $i ?></a></li>
     <?php endfor; ?>
     </ul>

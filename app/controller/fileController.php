@@ -33,16 +33,10 @@ class fileController extends coreController {
                 $new = fgets($file);
 
                 $new = trim($new);
-                var_dump($new);
                 if(empty($new)) {
                     break;
                 }
-                var_dump($new);
-                
                 $arr = explode(":", $new);
-                
-                echo "<br />";
-                
                 array_push($movie, trim($arr[1]));
             }
 
